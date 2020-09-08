@@ -1,5 +1,5 @@
 # projeto-individual-kotlin
-# projeto-individual-kotlin 
+
 ### Projeto em Kotlin realizado como objeto de avaliação continuada para  o 4° semestre do curso de ADS 
 ---
 Projeto individual da Continuada 1 - até 08/09, 18h Prazo final: 08/09, 3ª feira, 18h  
