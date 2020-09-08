@@ -17,54 +17,58 @@ class MainActivity : AppCompatActivity() {
 
 
     fun validarNome(): Boolean {
-         val nome: String = ed_nome.getText().toString()
+        val nome: String = ed_nome.getText().toString()
         var IsValid = true;
+
         if (nome.isEmpty()) {
             ed_nome.error = "Digite o seu nome!"
-            /*Toast.makeText(
-
-                this,
-                "$nome, Digite seu nome",
-                Toast.LENGTH_LONG
-            ).show()*/
-
             ed_nome.requestFocus()
+
             IsValid = false
             return IsValid
+        } else if (nome.length < 3) {
+            ed_nome.error = "O nome não pode ter menos de 3 letras!"
+            ed_nome.requestFocus()
+
+            IsValid = false
         }
-       return IsValid
+        return IsValid
     }
 
-    fun validarNota() {
-       // val nome: String = ed_nome.getText().toString()
+    fun validarNota(): Boolean {
+
         validarNome()
-       if (validarNome().equals(true)) {
-           if (ed_nota1.text.toString().toDouble() > 10.0 ||
-               ed_nota2.text.toString().toDouble() > 10.0
-           ) {
-               Toast.makeText(
-                   this,
-                   "O valor máximo para a nota é 10.0",
-                   Toast.LENGTH_LONG
-               ).show()
+        var notaValida = true
+        val nota1 = ed_nota1.text.toString().toDouble()
+        val nota2 = ed_nota2.text.toString().toDouble()
 
-               ed_nota1.requestFocus()
-           }
-       }
+        if (validarNome().equals(true)) {
+            if (nota1 > 10.0 || nota2 > 10.0) {
 
+                Toast.makeText(this, "O valor máximo para a nota é 10.0",
+                    Toast.LENGTH_LONG).show()
+                 notaValida = false
+                ed_nota1.requestFocus()
+
+            }else if (nota1== 0.0 || nota2 == 0.0){
+                Toast.makeText(this, "Nota invalida",
+                    Toast.LENGTH_LONG).show()
+                notaValida = false
+            }
+        }
+        return notaValida
     }
-
 
     fun calcularMediaDeDoisNumeros(componente: View) {
         val nome: String = ed_nome.getText().toString()
 
-        if (validarNome()){
+        if (validarNome() && validarNota() ) {
             val nota1 = ed_nota1.text.toString().toDouble()
             val nota2 = ed_nota2.text.toString().toDouble()
 
             val media = (nota1 + nota2) / 2
 
-            if (media > 5) {
+            if (media >= 5.0) {
                 validarNota()
                 tv_media.text =
                     "$nome, sua média é $media. Classificação: APROVADO! :D Parabéns."
@@ -77,39 +81,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
-
     }
 }
 
 
 
-
-
-        //--------------------------------------------------------------------
-
-       /* when{
-
-            media < 5-> {
-
-                tv_media.text = "$nome, sua média é $media. Classificação: REPROVADO! :( Estude Mais."
-                tv_media.setTextColor(Color.parseColor("FF0000"))
-
-            }else ->{
-            if( nota1 > 10.0 || nota2 > 10.0){
-                Toast.makeText(this, "$nome, o valor máximo para a nota é 10.0", Toast.LENGTH_LONG).show()
-                //tv_media.text = "$nome, o valor máximo para a nota é 10.0"
-                //tv_media.setTextColor(Color.MAGENTA)
-
-                //ed_nota1.setText(" ")
-                ed_nota1.requestFocus()
-
-                //ed_nota2.setText(" ")
-
-            }else {
-                tv_media.text = "$nome, sua média é $media. Classificação: APROVADO! :D Parabéns."
-                tv_media.setTextColor(Color.parseColor("#03BB85"))
-
-            }
-            }
-        }*/
