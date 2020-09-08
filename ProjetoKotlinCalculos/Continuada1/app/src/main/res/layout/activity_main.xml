@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calular Média de Notas"
+        android:textStyle="bold"
+        android:textColor="#07357A"
+        android:textSize="20sp"
+        android:id="@+id/tv_titulo"
+
+
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_titulo"
+        android:layout_marginTop="100dp"
+        android:hint="Informe seu Nome"
+        android:id="@+id/ed_nome"
+        android:inputType="text"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ed_nome"
+        android:layout_marginTop="30sp"
+        android:hint="Informe a nota 1"
+        android:id="@+id/ed_nota1"
+        android:inputType="numberDecimal"
+
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ed_nota1"
+        android:layout_marginTop="30dp"
+        android:hint="Informe a nota 2"
+        android:inputType="numberDecimal"
+        android:id="@+id/ed_nota2"
+
+
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="calcularMediaDeDoisNumeros"
+        app:layout_constraintTop_toBottomOf="@id/ed_nota2"
+        android:text="Calcular Média"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/bt_01"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Média Final"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@id/bt_01"
+        android:textColor="#212160"
+        android:id="@+id/tv_media"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
